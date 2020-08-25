@@ -78,6 +78,7 @@ i {
 }
 .num {
     box-shadow: 3px 3px 13px 5px #cdcadd, -3px -3px 13px 5px #FFFFFF;
+    background-color: #e2dff2;
 }
 .num:active {
     box-shadow: inset 13px 13px 13px 5px #cdcadd, inset -13px -13px 13px 5px #FFFFFF;
