@@ -16,6 +16,7 @@ body {
     width: 25%;
     padding-bottom: 30px;
     border-radius: 10px;
+    box-shadow: 8px 8px 12px 0px #5b5964d5;
 }
 .top {
     margin-bottom: 40px;
@@ -64,6 +65,9 @@ i {
     background-color: #5e40fa;
     color: white;
 }
+.sym:active {
+    box-shadow: inset 20px 19px 9px 0px #5c3cec, inset -1px -1px 13px 0px #FFFFFF;
+}
 .lol {
     width: 49.13px;
     color: #604bca;
@@ -74,6 +78,9 @@ i {
 }
 .num {
     box-shadow: 3px 3px 13px 5px #cdcadd, -3px -3px 13px 5px #FFFFFF;
+}
+.num:active {
+    box-shadow: inset 13px 13px 13px 5px #cdcadd, inset -13px -13px 13px 5px #FFFFFF;
 }
 p.text {
     font-family: 'Poppins', sans-serif;
