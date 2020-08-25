@@ -1,0 +1,71 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+body {
+    background: linear-gradient(to right, rgb(188, 172, 241), rgb(108, 80, 242));
+}
+.cover {
+    display: flex;
+    justify-content: center;
+    padding-top: 50px;
+}
+.container {
+    background-color: #e2dff2;
+    width: 25%;
+    padding-bottom: 30px;
+    border-radius: 10px;
+}
+.top {
+    margin-bottom: 40px;
+    text-align: right;
+    border-radius: 20px;
+    border-bottom: 1px solid #cdcadd;
+    padding: 40px 50px;
+    box-shadow: 0px 5px 7px 1px #cdcadd;
+}
+button {
+    border-radius: 50%;
+    border: 0;
+    font-size: 20px;
+    padding: 13px 19px 12px 19px;
+    cursor: pointer;
+    outline: 0;
+}
+.buttons {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-bottom: 20px;
+}
+i {
+    font-size: 15px;
+}
+.zero {
+    width: 37%;
+    border-radius: 30px;
+}
+.ac {
+    font-size: 15px; 
+    padding: 15px 15px;
+}
+.del {
+    padding: 13px 15px;
+}
+.sym {
+    width: 49.13px;
+    box-shadow: 3px 3px 13px 5px #a89bed, -6px -6px 13px 5px #FFFFFF;
+    background-color: #5e40fa;
+    color: white;
+}
+.lol {
+    width: 49.13px;
+    color: #604bca;
+}
+.dec {
+    font-weight: bolder;
+    color: black;
+}
+.num {
+    box-shadow: 3px 3px 13px 5px #cdcadd, -3px -3px 13px 5px #FFFFFF;
+}
