@@ -22,7 +22,7 @@ body {
     margin-bottom: 40px;
     text-align: right;
     border-radius: 20px;
-    border-bottom: 1px solid #cdcadd;
+    border-bottom: 2px solid #cdcadd;
     padding: 40px 50px;
     box-shadow: 0px 5px 7px 1px #cdcadd;
     font-family: 'Poppins', sans-serif;
@@ -66,7 +66,7 @@ i {
     color: white;
 }
 .sym:active {
-    box-shadow: inset 20px 19px 9px 0px #5c3cec, inset -1px -1px 13px 0px #FFFFFF;
+    box-shadow: inset 20px 19px 9px 0px #5c3cec, inset -2px -2px 13px 0px #FFFFFF;
 }
 .lol {
     width: 49.13px;
@@ -87,10 +87,49 @@ p.text {
     text-align: center;
     color: #eeedf5;
     margin-top: 20px;
+    margin-right: 20px;
+}
+p.txt {
+    padding-bottom: 60px;
 }
 a {
     color: inherit;
 }
 a:hover {
     color: rgba(255, 0, 0, 0.767);
+}
+.mobile {
+    display: none;
+}
+.desktop {
+    margin-top: 40px;
+    padding-bottom: 90px;
+}
+
+/* Media Queries*/
+@media (max-width: 1024px){
+    .container {
+        width: 35%;
+    }
+}
+@media (max-width: 769px){
+    .container {
+        width: 50%;
+    }
+}
+@media (max-width: 530px){
+    .container {
+        width: 75%;
+    }
+    .desktop {
+        display: none;
+    }
+    .mobile {
+        display: block;
+    }
+}
+@media (max-width: 320px){
+    .container {
+        width: 80%;
+    }
 }
