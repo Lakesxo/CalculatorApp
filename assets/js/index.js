@@ -26,7 +26,29 @@ class Calculator {
         this.currentOperand = this.currentOperand.toString() + number.toString()
     }
     compute(){
-
+        let computation
+        const prev = parseFloat(this.previousOperand)
+        const current = parseFloat(this.currentOperand)
+        if (isNaN(prev) || isNaN(current)) return
+        switch (this.symbol) {
+            case '+': 
+                computation = prev + current
+                break
+            case '-': 
+                computation = prev - current
+                break
+            case 'x':
+                computation = prev * current
+                break
+            case '÷':
+                computation = prev / current
+                break
+            default:
+                return
+        }
+        this.currentOperand = computation
+        this.symbol = undefined
+        this.previousOperand = ''
     }
     updateOutput(){
         this.currentElement.innerText = this.currentOperand
@@ -58,4 +80,9 @@ symbols.forEach(btn => {
         calculator.selectSymbol(btn.innerText)
         calculator.updateOutput()
     })
+})
+
+equalsBtn.addEventListener('click', btn => {
+    calculator.compute()
+    calculator.updateOutput()
 })
