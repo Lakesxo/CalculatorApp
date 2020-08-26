@@ -66,8 +66,8 @@ i {
     color: white;
 }
 .sym:active {
-    box-shadow:  inset 6px 6px 12px #332387, 
-    inset -6px -6px 12px #895dff;
+    box-shadow:  inset 6px 6px 5px #312182, 
+    inset -6px -6px 5px #8b5fff;
 }
 .lol {
     width: 49.13px;
@@ -91,7 +91,8 @@ i {
     background-color: #e2dff2;
 }
 .num:active {
-    box-shadow: inset 13px 13px 13px 5px #cdcadd, inset -13px -13px 13px 5px #FFFFFF;
+    box-shadow:  inset 6px 6px 7px #5a5961, 
+    inset -6px -6px 7px #ffffff;
 }
 p.text {
     font-family: 'Poppins', sans-serif;
