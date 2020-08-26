@@ -87,7 +87,7 @@ i {
     color: black;
 }
 .num {
-    box-shadow: 3px 3px 13px 5px #cdcadd, -3px -3px 13px 5px #FFFFFF;
+    box-shadow: 3px 3px 13px 5px rgba(0, 0, 0, 0.199), -3px -3px 13px 5px #FFFFFF;
     background-color: #e2dff2;
 }
 .num:active {
