@@ -31,6 +31,8 @@ body {
 .current {
     font-weight: 700;
     margin-top: 5px;
+    word-wrap: break-word;
+    word-break: break-all;
 }
 button {
     border-radius: 50%;

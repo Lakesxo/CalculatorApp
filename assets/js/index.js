@@ -13,20 +13,26 @@ class Calculator {
 
     }
     selectSymbol(symbol){
-
+        if (this.currentOperand === '') return
+        if (this.previousOperand !== ''){
+            this.compute()
+        }
+        this.symbol = symbol
+        this.previousOperand = this.currentOperand
+        this.currentOperand = ''
     }
     attachNumber(number){
-        this.currentOperand = number
+        if (number === '.' && this.currentOperand.includes('.')) return
+        this.currentOperand = this.currentOperand.toString() + number.toString()
     }
     compute(){
 
     }
     updateOutput(){
         this.currentElement.innerText = this.currentOperand
+        this.previousElement.innerText = this.previousOperand
     }
 }
-
-
 
 
 // All needed buttons selected from html
@@ -43,6 +49,13 @@ const calculator = new Calculator(previousElement, currentElement)
 numbers.forEach(btn => {
     btn.addEventListener('click', ()=> {
         calculator.attachNumber(btn.innerText)
+        calculator.updateOutput()
+    })
+})
+
+symbols.forEach(btn => {
+    btn.addEventListener('click', ()=> {
+        calculator.selectSymbol(btn.innerText)
         calculator.updateOutput()
     })
 })
