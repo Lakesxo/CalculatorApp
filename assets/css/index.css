@@ -26,6 +26,7 @@ body {
     padding: 40px 50px;
     box-shadow: 0px 5px 7px 1px #cdcadd;
     font-family: 'Poppins', sans-serif;
+    height: 50px;
 }
 .current {
     font-weight: 700;
