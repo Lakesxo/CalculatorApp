@@ -1,7 +1,8 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,200;1,300;1,400;1,500;1,600;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,wght@0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,600;1,700;1,800;1,900&family=Poppins:ital,wght@0,300;0,600;1,500&display=swap');
 * {
     margin: 0;
     padding: 0;
+    font-family: 'Nunito Sans', sans-serif;
 }
 body {
     background: linear-gradient(to right, rgb(188, 172, 241), rgb(108, 80, 242));
@@ -16,7 +17,7 @@ body {
     width: 25%;
     padding-bottom: 30px;
     border-radius: 10px;
-    box-shadow: 8px 8px 12px 0px #5b5964d5;
+    box-shadow: 8px 8px 12px 0px #5b5964d5, -1px -1px 20px 0px #ffffffc2;
 }
 .top {
     margin-bottom: 40px;
@@ -25,7 +26,6 @@ body {
     border-bottom: 2px solid #cdcadd;
     padding: 40px 50px;
     box-shadow: 0px 5px 7px 1px #cdcadd;
-    font-family: 'Poppins', sans-serif;
     height: 50px;
 }
 .current {
@@ -43,7 +43,7 @@ button {
     border-radius: 50%;
     border: 0;
     font-size: 20px;
-    padding: 13px 19px 12px 19px;
+    padding: 13px 19px 13px 19px;
     cursor: pointer;
     outline: 0;
 }
@@ -57,21 +57,33 @@ i {
     font-size: 15px;
 }
 .zero {
-    width: 37%;
-    border-radius: 30px;
+    width: 37% !important;
+    border-radius: 30px !important;
 }
 .ac {
     font-size: 15px; 
     padding: 15px 15px;
+    font-weight: 700;
 }
 .del {
     padding: 13px 15px;
 }
 .sym {
-    width: 49.13px;
+    width: 50px;
+    height: 50px;
     box-shadow: 3px 3px 13px 5px #a89bed, -6px -6px 13px 5px #FFFFFF;
     background-color: #5e40fa;
     color: white;
+    font-weight: 700;
+    font-size: 25px;
+}
+span.ex {
+    font-size: 21px;
+}
+button.sym {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .sym:active {
     box-shadow:  inset 6px 6px 5px #312182, 
@@ -97,6 +109,8 @@ i {
 .num {
     box-shadow: 3px 3px 13px 5px rgba(0, 0, 0, 0.199), -3px -3px 13px 5px #FFFFFF;
     background-color: #e2dff2;
+    width: 50px;
+    height: 50px;
 }
 .num:active {
     box-shadow:  inset 6px 6px 7px #5a5961, 
@@ -114,16 +128,20 @@ p.txt {
 }
 a {
     color: inherit;
+    font-weight: 600;
 }
 a:hover {
     color: rgba(255, 0, 0, 0.767);
 }
 .mobile {
     display: none;
+    font-family: 'Poppins', sans-serif;
 }
 .desktop {
     margin-top: 40px;
     padding-bottom: 90px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 18px;
 }
 
 /* Media Queries*/

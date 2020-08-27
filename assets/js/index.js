@@ -4,14 +4,27 @@ class Calculator {
         this.currentElement = currentElement
         this.clearAll()
     }
+
+    // Clear All function of the AC button
     clearAll(){
         this.currentOperand = ''
         this.previousOperand = ''
         this.symbol = undefined
     }
+
+    // Delete function of the Delete button
     delete(){
         this.currentOperand = this.currentOperand.slice(0, -1)
     }
+
+    // Percent button function
+    percent(){
+        let lolz = parseFloat(this.currentOperand)
+        const computation = lolz / 100
+        this.currentOperand = computation
+    }
+
+    // Function to select operation and compute when there's an input in the previous operand
     selectSymbol(symbol){
         if (this.currentOperand === '') return
         if (this.previousOperand !== ''){
@@ -21,10 +34,14 @@ class Calculator {
         this.previousOperand = this.currentOperand
         this.currentOperand = ''
     }
+
+    // Concatenate numbers so it doesn't add when numbers are clicked
     attachNumber(number){
         if (number === '.' && this.currentOperand.includes('.')) return
         this.currentOperand = this.currentOperand.toString() + number.toString()
     }
+
+    // Compute function to carry out all arithmetic operations
     compute(){
         let computation
         const prev = parseFloat(this.previousOperand)
@@ -50,6 +67,8 @@ class Calculator {
         this.symbol = undefined
         this.previousOperand = ''
     }
+
+    // Adding commas to seperate larger numbers
     getDisplayNumber(number){
         const stringNumber = number.toString()
         const integerDigits = parseFloat(stringNumber.split('.')[0])
@@ -67,6 +86,7 @@ class Calculator {
         }
     }
 
+    // Updates output after every input
     updateOutput(){
         this.currentElement.innerText = this.getDisplayNumber(this.currentOperand)
         if (this.symbol != null) {
@@ -78,7 +98,7 @@ class Calculator {
 }
 
 
-// All needed buttons selected from html
+// All needed buttons and elements selected from html
 let numbers = document.querySelectorAll('[data-number]');
 let symbols = document.querySelectorAll('[data-symbol]');
 let deleteBtn = document.querySelector('[data-delete]');
@@ -86,9 +106,12 @@ let equalsBtn = document.querySelector('[data-equal]');
 let clearBtn = document.querySelector('[data-clear]');
 let previousElement = document.querySelector('[data-previous]');
 let currentElement = document.querySelector('[data-current]');
+let percentBtn = document.querySelector('[data-percent]')
 
+//  Creating new class
 const calculator = new Calculator(previousElement, currentElement)
 
+// Attaching event listener  to all numbers and printing their respective value
 numbers.forEach(btn => {
     btn.addEventListener('click', ()=> {
         calculator.attachNumber(btn.innerText)
@@ -96,6 +119,7 @@ numbers.forEach(btn => {
     })
 })
 
+// Attaching event listener to all operation symbol buttons
 symbols.forEach(btn => {
     btn.addEventListener('click', ()=> {
         calculator.selectSymbol(btn.innerText)
@@ -103,16 +127,25 @@ symbols.forEach(btn => {
     })
 })
 
+// Attaching event listener to percent button
+percentBtn.addEventListener('click', btn => {
+    calculator.percent()
+    calculator.updateOutput()
+})
+
+// Attaching event listener to equals button
 equalsBtn.addEventListener('click', btn => {
     calculator.compute()
     calculator.updateOutput()
 })
 
+// Attaching event listener to AC button
 clearBtn.addEventListener('click', btn => {
     calculator.clearAll()
     calculator.updateOutput()
 })
 
+// Attaching event listener to delete button
 deleteBtn.addEventListener('click', btn => {
     calculator.delete()
     calculator.updateOutput()
