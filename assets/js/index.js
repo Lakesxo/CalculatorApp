@@ -10,7 +10,7 @@ class Calculator {
         this.symbol = undefined
     }
     delete(){
-
+        this.currentOperand = this.currentOperand.slice(0, -1)
     }
     selectSymbol(symbol){
         if (this.currentOperand === '') return
@@ -50,9 +50,30 @@ class Calculator {
         this.symbol = undefined
         this.previousOperand = ''
     }
+    getDisplayNumber(number){
+        const stringNumber = number.toString()
+        const integerDigits = parseFloat(stringNumber.split('.')[0])
+        const decimalDigits = stringNumber.split('.')[1]
+        let integerDisplay 
+        if (isNaN(integerDigits)){
+            integerDisplay = ''
+        }else {
+            integerDisplay = integerDigits.toLocaleString('en', { maximumFractionDigits: 0})
+        }
+        if (decimalDigits != null) {
+            return `${integerDisplay}.${decimalDigits}`
+        }else {
+            return integerDisplay
+        }
+    }
+
     updateOutput(){
-        this.currentElement.innerText = this.currentOperand
-        this.previousElement.innerText = this.previousOperand
+        this.currentElement.innerText = this.getDisplayNumber(this.currentOperand)
+        if (this.symbol != null) {
+            this.previousElement.innerText = `${this.getDisplayNumber(this.previousOperand)} ${this.symbol}`
+        } else {
+            this.previousElement.innerText = ''
+        }
     }
 }
 
@@ -84,5 +105,15 @@ symbols.forEach(btn => {
 
 equalsBtn.addEventListener('click', btn => {
     calculator.compute()
+    calculator.updateOutput()
+})
+
+clearBtn.addEventListener('click', btn => {
+    calculator.clearAll()
+    calculator.updateOutput()
+})
+
+deleteBtn.addEventListener('click', btn => {
+    calculator.delete()
     calculator.updateOutput()
 })
