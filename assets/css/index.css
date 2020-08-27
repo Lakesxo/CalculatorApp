@@ -67,6 +67,9 @@ i {
 }
 .del {
     padding: 13px 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .sym {
     width: 50px;
@@ -157,17 +160,12 @@ a:hover {
 }
 @media (max-width: 530px){
     .container {
-        width: 75%;
+        width: 85%;
     }
     .desktop {
         display: none;
     }
     .mobile {
         display: block;
-    }
-}
-@media (max-width: 320px){
-    .container {
-        width: 80%;
     }
 }
