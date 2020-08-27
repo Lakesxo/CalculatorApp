@@ -15,8 +15,6 @@ class Calculator {
     // Delete function of the Delete button
     delete(){
         this.currentOperand = this.currentOperand.slice(0, -1)
-        this.symbol = delete this.symbol
-        this.previousOperand = this.previousOperand.slice(0, -1)
     }
 
     // Percent button function
