@@ -65,7 +65,7 @@ class Calculator {
             default:
                 return
         }
-        this.currentOperand = computation
+        this.currentOperand = computation.toPrecision(1)
         this.symbol = undefined
         this.previousOperand = ''
     }
