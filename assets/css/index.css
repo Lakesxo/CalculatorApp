@@ -165,7 +165,7 @@ a:hover {
 }
 @media (max-width: 530px){
     .container {
-        width: 85%;
+        width: 80%;
     }
     .desktop {
         display: none;
