@@ -38,7 +38,7 @@ class Calculator {
     // Concatenate numbers so it doesn't add when numbers are clicked
     attachNumber(number){
         if (number === '.' && this.currentOperand.includes('.')) return
-        if(this.currentOperand.length <= 18){
+        if(this.currentOperand.length <= 15){
             this.currentOperand = this.currentOperand.toString() + number.toString()
         } 
     }
