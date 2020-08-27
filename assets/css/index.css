@@ -74,7 +74,8 @@ i {
 .sym {
     width: 50px;
     height: 50px;
-    box-shadow: 3px 3px 13px 5px #a89bed, -6px -6px 13px 5px #FFFFFF;
+    box-shadow: 5px 5px 15px #4f35d0c9, 
+    -5px -5px 10px #ffffff;
     background-color: #5e40fa;
     color: white;
     font-weight: 700;
@@ -82,6 +83,9 @@ i {
 }
 span.ex {
     font-size: 21px;
+}
+span.minus {
+    font-size: 35px;
 }
 button.sym {
     display: flex;
@@ -110,7 +114,8 @@ button.sym {
     color: black;
 }
 .num {
-    box-shadow: 3px 3px 13px 5px rgba(0, 0, 0, 0.199), -3px -3px 13px 5px #FFFFFF;
+    box-shadow:     5px 5px 17px #bcb9c9, 
+    -5px -5px 17px #ffffff;
     background-color: #e2dff2;
     width: 50px;
     height: 50px;
