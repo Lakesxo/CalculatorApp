@@ -13,7 +13,7 @@ class Calculator {
     }
 
     // Delete function of the Delete button
-    delete(){
+    delete(symbol){
         this.currentOperand = this.currentOperand.slice(0, -1)
     }
 
@@ -37,7 +37,9 @@ class Calculator {
 
     // Concatenate numbers so it doesn't add when numbers are clicked
     attachNumber(number){
+        // To allow only one '.' in the current operand 
         if (number === '.' && this.currentOperand.includes('.')) return
+        // To set the maximum number of the current operand to max of 15
         if(this.currentOperand.length <= 15){
             this.currentOperand = this.currentOperand.toString() + number.toString()
         } 
@@ -65,7 +67,7 @@ class Calculator {
             default:
                 return
         }
-        this.currentOperand = computation.toPrecision(1)
+        this.currentOperand = computation
         this.symbol = undefined
         this.previousOperand = ''
     }
