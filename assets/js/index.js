@@ -2,6 +2,7 @@ class Calculator {
     constructor(previousElement, currentElement) {
         this.previousElement = previousElement
         this.currentElement = currentElement
+        this.voiceStart = false
         this.clearAll()
     }
 
@@ -13,7 +14,7 @@ class Calculator {
     }
 
     // Delete function of the Delete button
-    delete(symbol){
+    delete(){
         this.currentOperand = this.currentOperand.slice(0, -1)
     }
 
@@ -70,6 +71,9 @@ class Calculator {
         this.currentOperand = computation
         this.symbol = undefined
         this.previousOperand = ''
+        if (this.voiceStart) {
+            this.speak();
+        }
     }
 
     // Adding commas to seperate larger numbers
@@ -91,13 +95,28 @@ class Calculator {
     }
 
     // Updates output after every input
-    updateOutput(){
+    updateOutput(val){
         this.currentElement.innerText = this.getDisplayNumber(this.currentOperand)
+        
         if (this.symbol != null) {
             this.previousElement.innerText = `${this.getDisplayNumber(this.previousOperand)} ${this.symbol}`
         } else {
             this.previousElement.innerText = ''
         }
+    }
+
+    // Voice command
+    voice(val) {
+        this.voiceStart = val;
+    }
+    speak() {
+        // Set the text and voice attributes.
+        var speech = new SpeechSynthesisUtterance();
+        speech.text = `Your awswer is ${eval(this.currentOperand)}`
+        speech.volume = 1;
+        speech.rate = 1;
+        speech.pitch = 1;
+        window.speechSynthesis.speak(speech);
     }
 }
 
@@ -114,6 +133,8 @@ let percentBtn = document.querySelector('[data-percent]')
 
 //  Creating new class
 const calculator = new Calculator(previousElement, currentElement)
+let SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+let recognition = new SpeechRecognition();
 
 // Attaching event listener  to all numbers and printing their respective value
 numbers.forEach(btn => {
@@ -154,3 +175,39 @@ deleteBtn.addEventListener('click', btn => {
     calculator.delete()
     calculator.updateOutput()
 })
+
+
+recognition.continuous = true;
+recognition.onresult = function (e) {
+    const transcript = Array.from(e.results).map(result => result[0]).map(result => result.transcript).join('')
+    console.log(transcript)
+    if (e.results[0].isFinal) {
+        splitVoice(transcript)
+        if (transcript.includes('equal')) {
+            calculator.compute();
+        }
+    }
+}
+
+function toggle() {
+    console.log(document.getElementById('checkbox').checked);
+    if (document.getElementById('checkbox').checked) {
+        recognition.start();
+        calculator.voice(true);
+    } else {
+        recognition.stop();
+        speechstart = false;
+        calculator.voice(false);
+    }
+}
+
+function splitVoice(val) {
+    let actualval = val.replace('multi', '*')
+        .replace('div', '/')
+        .replace('add', '+')
+        .replace('min', '-')
+        .replace('x', '*')
+        .replace(/ /g, '')
+      //  .match(/\d|\+|\-|\*|\./g).join('')
+    calculator.updateOutput(actualval);
+}
