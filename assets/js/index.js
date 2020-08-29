@@ -95,13 +95,19 @@ class Calculator {
     }
 
     // Updates output after every input
-    updateOutput(val){
+    updateOutput(val){   
         this.currentElement.innerText = this.getDisplayNumber(this.currentOperand)
-        
         if (this.symbol != null) {
             this.previousElement.innerText = `${this.getDisplayNumber(this.previousOperand)} ${this.symbol}`
         } else {
             this.previousElement.innerText = ''
+        }
+        if (val != null){
+            console.log(`there's a voice input`)
+            this.currentOperand += val
+            this.previousElement.innerText = `${(this.currentOperand)}`
+            this.currentElement.innerText = `${eval(this.currentOperand)}`
+            this.speak()
         }
     }
 
@@ -180,6 +186,7 @@ deleteBtn.addEventListener('click', btn => {
 recognition.continuous = true;
 recognition.onresult = function (e) {
     const transcript = Array.from(e.results).map(result => result[0]).map(result => result.transcript).join('')
+    // to test speech
     console.log(transcript)
     if (e.results[0].isFinal) {
         splitVoice(transcript)
@@ -208,6 +215,6 @@ function splitVoice(val) {
         .replace('min', '-')
         .replace('x', '*')
         .replace(/ /g, '')
-      //  .match(/\d|\+|\-|\*|\./g).join('')
+        .match(/\d|\+|\-|\*|\/|\./g).join('')
     calculator.updateOutput(actualval);
 }
