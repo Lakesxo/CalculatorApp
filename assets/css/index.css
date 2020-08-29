@@ -24,7 +24,7 @@ body {
     text-align: right;
     border-radius: 20px;
     border-bottom: 2px solid #cdcadd;
-    padding: 10px 30px 10px 20px;
+    padding: 10px 20px 20px 20px;
     box-shadow: 0px 5px 7px 1px #cdcadd;
     height: 130px;
     display: flex;
@@ -72,6 +72,17 @@ body {
     -webkit-transition: .4s;
     transition: .4s;
 }
+.inside {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 80px;
+    box-shadow: inset 7px 7px 18px #a09eac, 
+            inset -7px -7px 18px #ffffff;
+    border-radius: 6px;
+    padding-right: 20px;
+    padding-top: 10px;
+}
 
 input:checked + .slider {
     background-color: #5f40faa8;
@@ -95,7 +106,7 @@ input:checked + .slider:before {
     font-weight: 700;
     word-wrap: break-word;
     word-break: break-all;
-    font-size: 20px;
+    font-size: 18px;
     height: 27px;
 }
 .previous {

@@ -41,7 +41,7 @@ class Calculator {
         // To allow only one '.' in the current operand 
         if (number === '.' && this.currentOperand.includes('.')) return
         // To set the maximum number of the current operand to max of 15
-        if(this.currentOperand.length <= 15){
+        if(this.currentOperand.length <= 13){
             this.currentOperand = this.currentOperand.toString() + number.toString()
         } 
     }
@@ -103,11 +103,14 @@ class Calculator {
             this.previousElement.innerText = ''
         }
         if (val != null){
-            console.log(`there's a voice input`)
+            // console.log(`there's a voice input`)
             this.currentOperand += val
             this.previousElement.innerText = `${(this.currentOperand)}`
             this.currentElement.innerText = `${eval(this.currentOperand)}`
             this.speak()
+            if (this.currentOperand != ''){
+
+            }
         }
     }
 
