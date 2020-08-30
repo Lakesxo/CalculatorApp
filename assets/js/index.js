@@ -213,12 +213,11 @@ toggle =()=> {
 }
 
 alat =()=> {
-    previousElement.innerText = ''
     calculator.clearAll()
     recognition.stop()
-   // speechstart = false;
-   // calculator.voice(false);
-    setTimeout(()=> {recognition.start()}, 1000)
+    speechstart = false;
+    calculator.voice(false);
+    setTimeout(()=> {recognition.start();speechstart = true;calculator.voice(true);}, 1000)
 }
 
 // Toggle the voice button
