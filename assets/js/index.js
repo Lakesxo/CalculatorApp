@@ -105,8 +105,8 @@ class Calculator {
         if (val != null){
             // console.log(`there's a voice input`)
             this.currentOperand = val
-            this.previousElement.innerText = `${(this.currentOperand)}`
-            this.currentElement.innerText = `${eval(this.currentOperand)}`
+            this.previousElement.innerText = this.currentOperand
+            this.currentElement.innerText = eval(this.currentOperand)
             this.speak()
         }
     }
@@ -217,7 +217,7 @@ alat =()=> {
     recognition.stop()
     speechstart = false;
     calculator.voice(false);
-    setTimeout(()=> {recognition.start()}, 4000)
+    setTimeout(()=> {recognition.start()}, 3000)
 }
 
 // Toggle the voice button
