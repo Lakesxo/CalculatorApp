@@ -24,7 +24,7 @@ body {
     text-align: right;
     border-radius: 20px;
     border-bottom: 2px solid #cdcadd;
-    padding: 10px 20px 20px 20px;
+    padding: 10px 20px 10px 20px;
     box-shadow: 0px 5px 7px 1px #cdcadd;
     height: 130px;
     display: flex;
@@ -34,7 +34,12 @@ body {
 .toggle {
     display: flex;
     justify-content: flex-start;
-    align-items: flex-start;
+    align-items: center;
+}
+p.mic {
+    color: #5e40fa;
+    margin-left: 10px;
+    font-size: 18px;
 }
 .switch {
     position: relative;
@@ -76,12 +81,13 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-    height: 80px;
+    height: 75px;
     box-shadow: inset 7px 7px 18px #a09eacc7, 
             inset -7px -7px 18px #ffffff;
     border-radius: 6px;
     padding-right: 20px;
     padding-top: 10px;
+    padding-bottom: 5px;
 }
 
 input:checked + .slider {
