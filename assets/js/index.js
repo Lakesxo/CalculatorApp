@@ -142,8 +142,8 @@ let checkBox = document.getElementById('checkbox')
 
 //  Creating new class
 const calculator = new Calculator(previousElement, currentElement)
-let SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
-let recognition = new SpeechRecognition();
+var SpeechRecognition = SpeechRecognition || webkitSpeechRecognition;
+var recognition = new SpeechRecognition();
 
 
 // Attaching event listener  to all numbers and printing their respective value
@@ -187,7 +187,7 @@ deleteBtn.addEventListener('click', btn => {
 })
 
 
-recognition.continuous = true;
+recognition.continuous = false;
 recognition.onresult = function (e) {
     const transcript = Array.from(e.results).map(result => result[0]).map(result => result.transcript).join('')
     // to test speech
