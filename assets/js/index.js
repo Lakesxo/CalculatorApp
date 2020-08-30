@@ -213,6 +213,7 @@ toggle =()=> {
 }
 
 alat =()=> {
+    previousElement.innerText = ''
     calculator.clearAll()
     recognition.stop()
    // speechstart = false;
