@@ -117,7 +117,8 @@ class Calculator {
     }
     speak() {
         // Set the text and voice attributes.
-        var speech = new SpeechSynthesisUtterance();
+        let SpeechSynthesisUtterance = window.SpeechSynthesisUtterance
+        let speech = new SpeechSynthesisUtterance();
         speech.text = `Your answer is ${eval(this.currentOperand)}`
         speech.volume = 1;
         speech.rate = 1;
