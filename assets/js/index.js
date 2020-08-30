@@ -124,6 +124,7 @@ class Calculator {
         speech.pitch = 1;
         window.speechSynthesis.speak(speech);
         speech.onend = ()=>{alat()}
+        speech.addEventListener('onend', toggle)
     }
 }
 
@@ -190,7 +191,7 @@ recognition.continuous = true;
 recognition.onresult = function (e) {
     const transcript = Array.from(e.results).map(result => result[0]).map(result => result.transcript).join('')
     // to test speech
-    console.log(transcript)
+    // console.log(transcript)
     if (e.results[0].isFinal) {
         splitVoice(transcript)
         if (transcript.includes('equal')) {
@@ -200,7 +201,7 @@ recognition.onresult = function (e) {
 }
 
 toggle =()=> {
-    console.log(checkBox.checked);
+    // console.log(checkBox.checked);
     if (checkBox.checked) {
         recognition.start();
         calculator.voice(true);
@@ -214,6 +215,8 @@ toggle =()=> {
 alat=()=>{
     calculator.clearAll()
     recognition.stop()
+    speechstart = false;
+    calculator.voice(false);
     setTimeout(()=> {recognition.start()}, 1000)
 }
 
