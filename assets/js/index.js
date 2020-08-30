@@ -117,8 +117,7 @@ class Calculator {
     }
     speak() {
         // Set the text and voice attributes.
-        let SpeechSynthesisUtterance = window.SpeechSynthesisUtterance
-        let speech = new SpeechSynthesisUtterance();
+        let speech = new window.SpeechSynthesisUtterance();
         speech.text = `Your answer is ${eval(this.currentOperand)}`
         speech.volume = 1;
         speech.rate = 1;
@@ -213,11 +212,11 @@ toggle =()=> {
     }
 }
 
-alat=()=>{
+alat =()=> {
     calculator.clearAll()
     recognition.stop()
-    speechstart = false;
-    calculator.voice(false);
+   // speechstart = false;
+   // calculator.voice(false);
     setTimeout(()=> {recognition.start()}, 1000)
 }
 
