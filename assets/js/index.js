@@ -41,7 +41,7 @@ class Calculator {
         // To allow only one '.' in the current operand 
         if (number === '.' && this.currentOperand.includes('.')) return
         // To set the maximum number of the current operand to max of 15
-        if(this.currentOperand.length <= 13){
+        if(this.currentOperand.length <= 15){
             this.currentOperand = this.currentOperand.toString() + number.toString()
         } 
     }
@@ -108,9 +108,6 @@ class Calculator {
             this.previousElement.innerText = `${(this.currentOperand)}`
             this.currentElement.innerText = `${eval(this.currentOperand)}`
             this.speak()
-            if (this.currentOperand != ''){
-
-            }
         }
     }
 
@@ -126,6 +123,7 @@ class Calculator {
         speech.rate = 1;
         speech.pitch = 1;
         window.speechSynthesis.speak(speech);
+        speech.onend = ()=>{alat()}
     }
 }
 
@@ -139,11 +137,13 @@ let clearBtn = document.querySelector('[data-clear]');
 let previousElement = document.querySelector('[data-previous]');
 let currentElement = document.querySelector('[data-current]');
 let percentBtn = document.querySelector('[data-percent]')
+let checkBox = document.getElementById('checkbox')
 
 //  Creating new class
 const calculator = new Calculator(previousElement, currentElement)
 let SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
 let recognition = new SpeechRecognition();
+
 
 // Attaching event listener  to all numbers and printing their respective value
 numbers.forEach(btn => {
@@ -199,9 +199,9 @@ recognition.onresult = function (e) {
     }
 }
 
-function toggle() {
-    console.log(document.getElementById('checkbox').checked);
-    if (document.getElementById('checkbox').checked) {
+toggle =()=> {
+    console.log(checkBox.checked);
+    if (checkBox.checked) {
         recognition.start();
         calculator.voice(true);
     } else {
@@ -211,7 +211,16 @@ function toggle() {
     }
 }
 
-function splitVoice(val) {
+alat=()=>{
+    calculator.clearAll()
+    recognition.stop()
+    setTimeout(()=> {recognition.start()}, 1000)
+}
+
+// Toggle the voice button
+checkBox.addEventListener('click', toggle)
+
+splitVoice =(val)=> {
     let actualval = val.replace('multi', '*')
         .replace('div', '/')
         .replace('add', '+')
