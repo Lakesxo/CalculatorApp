@@ -217,7 +217,7 @@ alat =()=> {
     recognition.stop()
     speechstart = false;
     calculator.voice(false);
-    setTimeout(()=> {recognition.start()}, 3000)
+    setTimeout(()=> {recognition.start()}, 2000)
 }
 
 // Toggle the voice button
