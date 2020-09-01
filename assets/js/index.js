@@ -212,6 +212,7 @@ toggle =()=> {
     }
 }
 
+// Function to load on speech end
 alat =()=> {
     calculator.clearAll()
     recognition.stop()
